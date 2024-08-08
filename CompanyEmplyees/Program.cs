@@ -1,6 +1,5 @@
 using CompanyEmplyees.Extensions;
 using Microsoft.AspNetCore.HttpOverrides;
-using NLog;
 namespace CompanyEmplyees
 {
     public class Program
@@ -8,14 +7,12 @@ namespace CompanyEmplyees
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            LogManager.LoadConfiguration(Path.Combine(Directory.GetCurrentDirectory(), "nlog.config"));
-            var df = Directory.GetCurrentDirectory();
+
             // Add services to the container.
 
             builder.Services.AddControllers();
             builder.Services.ConfigureCors();
             builder.Services.ConfigureIISIntagration();
-            builder.Services.ConfigureLoggerService();
 
             var app = builder.Build();
 
