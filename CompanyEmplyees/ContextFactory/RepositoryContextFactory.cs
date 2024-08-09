@@ -14,7 +14,7 @@ namespace CompanyEmplyees.ContextFactory
                 .Build();
             var builder = new DbContextOptionsBuilder<RepositoryContext>()
                 .UseSqlServer(configuration.GetConnectionString("sqlConnection"),
-                b => b.MigrationsAssembly("CompanyEmployees"));
+                b => b.MigrationsAssembly("CompanyEmplyees"));
             return new RepositoryContext(builder.Options);
         }
 
