@@ -1,5 +1,6 @@
 using CompanyEmplyees.Extensions;
 using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.Data.SqlClient;
 using NLog;
 namespace CompanyEmplyees
 {
@@ -12,10 +13,13 @@ namespace CompanyEmplyees
             var df = Directory.GetCurrentDirectory();
             // Add services to the container.
 
+            builder.Services.ConfigureRepositoryManager();
+            builder.Services.ConfigureServiceManager();
             builder.Services.AddControllers();
             builder.Services.ConfigureCors();
             builder.Services.ConfigureIISIntagration();
             builder.Services.ConfigureLoggerService();
+            builder.Services.ConfigureSqlContext(builder.Configuration);
 
             var app = builder.Build();
 
