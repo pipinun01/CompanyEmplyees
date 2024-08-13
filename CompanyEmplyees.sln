@@ -13,9 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entiti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{B6CCBFEA-924C-4052-A8DC-537C26FF787E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Contracts", "Service.Contracts\Service.Contracts.csproj", "{5947211E-464C-4193-9637-FDB6ED001983}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service.Contracts", "Service.Contracts\Service.Contracts.csproj", "{5947211E-464C-4193-9637-FDB6ED001983}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{97753321-8B4E-4498-B912-0B3B31CD3E31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{97753321-8B4E-4498-B912-0B3B31CD3E31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyEmployees.Presentation", "CompanyEmployees.Presentation\CompanyEmployees.Presentation.csproj", "{6F82748F-3EEB-442B-B2E5-E04B14C3F340}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Presentation\Presentation.csproj", "{3195FDEC-CB8D-46D9-8A3B-3C223B60747E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,14 @@ Global
 		{97753321-8B4E-4498-B912-0B3B31CD3E31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97753321-8B4E-4498-B912-0B3B31CD3E31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97753321-8B4E-4498-B912-0B3B31CD3E31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F82748F-3EEB-442B-B2E5-E04B14C3F340}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F82748F-3EEB-442B-B2E5-E04B14C3F340}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F82748F-3EEB-442B-B2E5-E04B14C3F340}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F82748F-3EEB-442B-B2E5-E04B14C3F340}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3195FDEC-CB8D-46D9-8A3B-3C223B60747E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3195FDEC-CB8D-46D9-8A3B-3C223B60747E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3195FDEC-CB8D-46D9-8A3B-3C223B60747E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3195FDEC-CB8D-46D9-8A3B-3C223B60747E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

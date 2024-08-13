@@ -15,11 +15,11 @@ namespace CompanyEmplyees
 
             builder.Services.ConfigureRepositoryManager();
             builder.Services.ConfigureServiceManager();
-            builder.Services.AddControllers();
             builder.Services.ConfigureCors();
             builder.Services.ConfigureIISIntagration();
             builder.Services.ConfigureLoggerService();
             builder.Services.ConfigureSqlContext(builder.Configuration);
+            builder.Services.AddControllers().AddApplicationPart(typeof(CompanyEmplyees.Presentation.AssemblyReference).Assembly);
 
             var app = builder.Build();
 
