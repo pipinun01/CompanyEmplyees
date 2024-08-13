@@ -13,13 +13,14 @@ namespace CompanyEmplyees
             var df = Directory.GetCurrentDirectory();
             // Add services to the container.
 
-            builder.Services.ConfigureRepositoryManager();
+            builder.Services.AddControllers().AddApplicationPart(typeof(CompanyEmployees.Presentation.AssemblyReference).Assembly);
             builder.Services.ConfigureServiceManager();
             builder.Services.ConfigureCors();
             builder.Services.ConfigureIISIntagration();
             builder.Services.ConfigureLoggerService();
             builder.Services.ConfigureSqlContext(builder.Configuration);
-            builder.Services.AddControllers().AddApplicationPart(typeof(CompanyEmplyees.Presentation.AssemblyReference).Assembly);
+            builder.Services.ConfigureRepositoryManager();
+            //builder.Services.AddControllers().AddApplicationPart(typeof(CompanyEmplyees.Presentation.AssemblyReference).Assembly);
 
             var app = builder.Build();
 
@@ -45,7 +46,8 @@ namespace CompanyEmplyees
 
             app.UseAuthorization();
 
-
+            app.MapControllerRoute(name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             app.MapControllers();
 
             app.Run();
