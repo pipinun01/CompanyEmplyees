@@ -14,7 +14,9 @@ namespace Service
         public MappingProfile() 
         {
             CreateMap<Company, CompanyDto>()
-                .ForCtorParam("FullAddress", opt => opt.MapFrom(x => string.Join(' ', x.Address, x.Country)));
+                .ForCtorParam("Name", opt => opt.MapFrom(src => src.Name))
+                .ForCtorParam("guid", opt => opt.MapFrom(src => src.Id))
+                .ForCtorParam("fullAddress", opt => opt.MapFrom(x => string.Join(' ', x.Address, x.Country)));
         }
     }
 }

@@ -1,7 +1,9 @@
 using CompanyEmplyees.Extensions;
+using Contracts;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.Data.SqlClient;
 using NLog;
+using Service;
 namespace CompanyEmplyees
 {
     public class Program
@@ -20,16 +22,21 @@ namespace CompanyEmplyees
             builder.Services.ConfigureLoggerService();
             builder.Services.ConfigureSqlContext(builder.Configuration);
             builder.Services.ConfigureRepositoryManager();
-            builder.Services.AddAutoMapper(typeof(Program));    
+            builder.Services.ConfigureAutoMapper();    
             //builder.Services.AddControllers().AddApplicationPart(typeof(CompanyEmplyees.Presentation.AssemblyReference).Assembly);
 
             var app = builder.Build();
-
+            var logger = app.Services.GetRequiredService<ILoggerManager>();
+            app.ConfigureExceptionHandler(logger);
+            if (app.Environment.IsProduction())
+            {
+                app.UseHsts();
+            }
             // Configure the HTTP request pipeline.
 
             if (app.Environment.IsDevelopment()) 
             {
-                app.UseDeveloperExceptionPage();
+                //app.UseDeveloperExceptionPage();
             }
             else
             {

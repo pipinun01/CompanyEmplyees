@@ -19,18 +19,11 @@ namespace Service
         }
         public IEnumerable<CompanyDto> GetAllCompanies(bool trackChanges)
         {
-            try
-            {
-                var companies = _repositoryManager.CompanyRepository.GetAllCompanies(trackChanges);
-                //var companiesDto = companies.Select(se=> new CompanyDto ( se.Id, se.Name ?? "", string.Join(' ', se.Address, se.Country))).ToList();
-                var companiesDto = _mapper.Map<IEnumerable<CompanyDto>>(companies);
-                return companiesDto;
-            }
-            catch (Exception ex) 
-            {
-                _loggerManager.LogError($"GetAllCompanies_CompanyService _Messages: {ex.Message} _Stacktrace: {ex.StackTrace}");
-                throw;
-            }
+
+            var companies = _repositoryManager.CompanyRepository.GetAllCompanies(trackChanges);
+            //var companiesDto = companies.Select(se=> new CompanyDto ( se.Id, se.Name ?? "", string.Join(' ', se.Address, se.Country))).ToList();
+            var companiesDto = _mapper.Map<List<CompanyDto>>(companies);
+            return companiesDto;
         }
     }
 }
