@@ -20,6 +20,7 @@ namespace CompanyEmplyees
             builder.Services.ConfigureLoggerService();
             builder.Services.ConfigureSqlContext(builder.Configuration);
             builder.Services.ConfigureRepositoryManager();
+            builder.Services.AddAutoMapper(typeof(Program));    
             //builder.Services.AddControllers().AddApplicationPart(typeof(CompanyEmplyees.Presentation.AssemblyReference).Assembly);
 
             var app = builder.Build();
