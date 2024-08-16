@@ -13,10 +13,17 @@ namespace Service
     {
         public MappingProfile() 
         {
+
             CreateMap<Company, CompanyDto>()
-                .ForCtorParam("Name", opt => opt.MapFrom(src => src.Name))
-                .ForCtorParam("guid", opt => opt.MapFrom(src => src.Id))
-                .ForCtorParam("fullAddress", opt => opt.MapFrom(x => string.Join(' ', x.Address, x.Country)));
+                .ForMember(c => c.fullAddress, opt => opt.MapFrom(src => string.Join(' ', src.Address, src.Country)))
+                .ForMember(c=>c.guid, opt=> opt.MapFrom(x=>x.Id));
+
+
+            //*-*-*-*-*-*-*-*-*-*-*-*-*-* ЕСЛИ record CompanyDto С ПАРАМЕТРАМИ
+            //CreateMap<Company, CompanyDto>()
+            //    .ForCtorParam("Name", opt => opt.MapFrom(src => src.Name))
+            //    .ForCtorParam("guid", opt => opt.MapFrom(src => src.Id))
+            //    .ForCtorParam("fullAddress", opt => opt.MapFrom(x => string.Join(' ', x.Address, x.Country)));
 
             CreateMap<Employee, EmployeeDto>()
                 .ForCtorParam("Id", opt => opt.MapFrom(src => src.Id))
