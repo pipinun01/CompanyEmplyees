@@ -30,6 +30,8 @@ namespace Service
                 .ForCtorParam("Name", opt => opt.MapFrom(src => src.Name))
                 .ForCtorParam("Age", opt => opt.MapFrom(src => src.Age))
                 .ForCtorParam("Position", opt => opt.MapFrom(src => src.Position));
+
+            CreateMap<CompanyForCreationDto, Company>();
         }
     }
 }
