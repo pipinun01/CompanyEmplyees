@@ -21,7 +21,7 @@ namespace Entities.Models
         public int Age { get; set; }
 
         [Required(ErrorMessage = "Position is a required field.")]
-        [MaxLength(20, ErrorMessage = "Maximum length for the Position is 20 ncharacters.")]
+        [MaxLength(50, ErrorMessage = "Maximum length for the Position is 20 ncharacters.")]
         public string? Position { get; set; }
 
         [ForeignKey(nameof(Company))]

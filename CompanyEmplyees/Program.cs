@@ -1,6 +1,7 @@
 using CompanyEmplyees.Extensions;
 using Contracts;
 using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using NLog;
 using Service;
@@ -14,7 +15,10 @@ namespace CompanyEmplyees
             LogManager.LoadConfiguration(Path.Combine(Directory.GetCurrentDirectory(), "nlog.config"));
             var df = Directory.GetCurrentDirectory();
             // Add services to the container.
-
+            builder.Services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.SuppressModelStateInvalidFilter = true;
+            });
             builder.Services.AddControllers(config =>
             {
                 config.RespectBrowserAcceptHeader = true;
@@ -26,8 +30,8 @@ namespace CompanyEmplyees
             builder.Services.ConfigureIISIntagration();
             builder.Services.ConfigureLoggerService();
             builder.Services.ConfigureSqlContext(builder.Configuration);
-            builder.Services.ConfigureRepositoryManager();
             builder.Services.ConfigureAutoMapper();    
+            builder.Services.ConfigureRepositoryManager();
             //builder.Services.AddControllers().AddApplicationPart(typeof(CompanyEmplyees.Presentation.AssemblyReference).Assembly);
 
             var app = builder.Build();
