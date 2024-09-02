@@ -6,5 +6,6 @@
         public Guid guid { get; init; }
         public string Name { get; init; }
         public string fullAddress { get; init; }
+        IEnumerable<EmployeeForCreationDto> Employees;
     }
 }
